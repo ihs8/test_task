@@ -1,4 +1,3 @@
-// /src/components/TaskList.tsx
 import React from "react";
 import { Task } from "../interfaces/Task";
 import TaskCard from "./TaskCard";
@@ -19,5 +18,4 @@ const TaskList: React.FC<TaskListProps> = ({ tasks, onEdit, onDelete }) => {
   );
 };
 
-// Use React.memo for TaskList
 export default React.memo(TaskList);

@@ -1,4 +1,3 @@
-// /src/App.tsx
 import React, { useState, useCallback } from "react";
 import TaskForm from "./components/TaskForm";
 import TaskList from "./components/TaskList";
@@ -13,7 +12,7 @@ const App: React.FC = () => {
   const [searchQuery, setSearchQuery] = useState<string>("");
   const [sortOption, setSortOption] = useState<"DueDateAsc" | "DueDateDesc" | "Status">("DueDateAsc");
 
-  // Handle task editing
+ 
   const handleEditTask = useCallback((task: Task) => {
     setTaskToEdit(task);
   }, []);
@@ -38,18 +37,18 @@ const App: React.FC = () => {
     [deleteTask]
   );
 
-  // Filter tasks based on status
+
   const filteredTasks = tasks.filter((task) => {
     if (filterStatus === "All") return true;
     return task.status === filterStatus;
   });
 
-  // Search tasks based on title
+
   const searchedTasks = filteredTasks.filter((task) =>
     task.title.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
-  // Sort tasks
+  
   const sortedTasks = [...searchedTasks].sort((a, b) => {
     if (sortOption === "DueDateAsc") {
       return new Date(a.dueDate).getTime() - new Date(b.dueDate).getTime();
@@ -68,11 +67,10 @@ const App: React.FC = () => {
 
   return (
     <div className="container mx-auto p-4">
-      <h1 className="text-2xl font-bold mb-4">Task Management Dashboard</h1>
+      <h1 className="text-2xl font-bold mb-4 text-center">Task Management Dashboard</h1>
 
-      {/* Filters and Search */}
       <div className="flex flex-col md:flex-row justify-between mb-4 gap-4">
-        {/* Filter by Status */}
+
         <select
           value={filterStatus}
           onChange={(e) => setFilterStatus(e.target.value as any)}
@@ -84,7 +82,7 @@ const App: React.FC = () => {
           <option value="Done">Show Done Tasks</option>
         </select>
 
-        {/* Search by Title */}
+ 
         <input
           type="text"
           placeholder="Search tasks..."
@@ -93,7 +91,7 @@ const App: React.FC = () => {
           className="border border-gray-300 rounded-md p-2"
         />
 
-        {/* Sort Options */}
+
         <select
           value={sortOption}
           onChange={(e) => setSortOption(e.target.value as any)}
@@ -105,14 +103,14 @@ const App: React.FC = () => {
         </select>
       </div>
 
-      {/* Task Form */}
+
       <TaskForm
         onSubmit={handleTaskSubmit}
         taskToEdit={taskToEdit}
         onCancel={handleCancelEdit}
       />
 
-      {/* Task List */}
+
       <TaskList
         tasks={sortedTasks}
         onEdit={handleEditTask}

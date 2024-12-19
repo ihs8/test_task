@@ -1,4 +1,3 @@
-// /src/components/TaskCard.tsx
 import React from "react";
 import { Task } from "../interfaces/Task";
 
@@ -39,5 +38,5 @@ const TaskCard: React.FC<TaskCardProps> = ({ task, onEdit, onDelete }) => {
   );
 };
 
-// Use React.memo to avoid unnecessary re-renders
+
 export default React.memo(TaskCard);

@@ -1,4 +1,3 @@
-// /src/components/TaskForm.tsx
 import React, { useState, useEffect } from "react";
 import { Task } from "../interfaces/Task";
 
@@ -99,5 +98,4 @@ const TaskForm: React.FC<TaskFormProps> = ({ onSubmit, taskToEdit, onCancel }) =
   );
 };
 
-// Use React.memo
 export default React.memo(TaskForm);
